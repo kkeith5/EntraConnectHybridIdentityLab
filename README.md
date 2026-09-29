@@ -4,6 +4,9 @@
 This project connects the on-prem Active Directory domain from my [Active Directory Home Lab](https://github.com/kkeith5/ActiveDirectoryHomeLab) to Microsoft Entra ID using Microsoft Entra Connect Sync, creating a hybrid identity environment. On-prem users and groups now sync into Entra ID alongside the cloud-only users from my [Microsoft 365 / Entra ID Admin Lab](https://github.com/kkeith5/Microsoft365EntraIdAdminLab), and both sets of users are picked up correctly by the same dynamic security groups.
 <br />
 
+<h2>Why I built this</h2>
+I built this as I saw it as a logical next step to combine Active Directory lab and the Entra Id lab and would be perfect to simulate a real corporate environement. From looking at job adverts it is common for real companies to implement a hybrid identiy environment and this will prove a good home environemnt to continue to develop.
+
 <h2>Skills Demonstrated</h2>
 
 - Installing and configuring Microsoft Entra Connect Sync (Custom installation)
