@@ -29,35 +29,63 @@ This project connects the on-prem Active Directory domain from my [Active Direct
 
 <p align="center">
 
-<h3>Entra Connect Sync installer — Custom installation:</h3>
-<img src="screenshots/01-custom-install.png" height="80%" width="80%" alt="Entra Connect custom installation"/>
+<h3>1. Custom installation selected:</h3>
+<img src="screenshots/01-custom-setup.png" height="80%" width="80%" alt="Custom installation"/>
 <br /><br />
 
-<h3>Dedicated sync account created instead of using Domain Admin:</h3>
-<img src="screenshots/02-sync-account.png" height="80%" width="80%" alt="Dedicated sync account"/>
+<h3>2. Required components installed:</h3>
+<img src="screenshots/02-required-components.png" height="80%" width="80%" alt="Required components"/>
 <br /><br />
 
-<h3>UPN suffix warning — lab domain not a verified Entra domain:</h3>
-<img src="screenshots/03-upn-warning.png" height="80%" width="80%" alt="UPN suffix warning"/>
+<h3>3. User sign-in method — Password Hash Synchronization:</h3>
+<img src="screenshots/03-user-sign-in.png" height="80%" width="80%" alt="User sign-in method"/>
 <br /><br />
 
-<h3>OU filtering — only Lab OU scoped for sync:</h3>
-<img src="screenshots/04-ou-filtering.png" height="80%" width="80%" alt="OU filtering"/>
+<h3>4. Connect to Microsoft Entra ID:</h3>
+<img src="screenshots/04-connect-directories.png" height="80%" width="80%" alt="Connect directories"/>
 <br /><br />
 
-<h3>Configuration complete:</h3>
-<img src="screenshots/05-configuration-complete.png" height="80%" width="80%" alt="Configuration complete"/>
+<h3>5. Connect your on-prem AD forest:</h3>
+<img src="screenshots/05-ad-forest-connection.png" height="80%" width="80%" alt="AD forest connection"/>
 <br /><br />
 
-<h3>Synced users appearing in Entra ID:</h3>
-<img src="screenshots/06-synced-users.png" height="80%" width="80%" alt="Synced users in Entra ID"/>
+<h3>6. Microsoft Entra sign-in configuration — UPN suffix check:</h3>
+<img src="screenshots/06-entra-sign-in-config.png" height="80%" width="80%" alt="Entra sign-in configuration"/>
 <br /><br />
 
-<h3>Dynamic security group showing both synced and cloud-only members:</h3>
-<img src="screenshots/07-mixed-group-membership.png" height="80%" width="80%" alt="Mixed group membership"/>
+<h3>7. Domain and OU filtering — scoped to the Lab OU:</h3>
+<img src="screenshots/07-domain-ou-filtering.png" height="80%" width="80%" alt="Domain and OU filtering"/>
+<br /><br />
+
+<h3>8. Uniquely identifying users:</h3>
+<img src="screenshots/08-identifying-users.png" height="80%" width="80%" alt="Uniquely identifying users"/>
+<br /><br />
+
+<h3>9. Filtering users and devices:</h3>
+<img src="screenshots/09-filtering.png" height="80%" width="80%" alt="Filtering users and devices"/>
+<br /><br />
+
+<h3>10. Optional features:</h3>
+<img src="screenshots/10-optional-features.png" height="80%" width="80%" alt="Optional features"/>
+<br /><br />
+
+<h3>11. Configuration complete:</h3>
+<img src="screenshots/11-configuration-complete.png" height="80%" width="80%" alt="Configuration complete"/>
+<br /><br />
+
+<h3>12. All users successfully synchronised:</h3>
+<img src="screenshots/12-all-users-synced.png" height="80%" width="80%" alt="All users synced"/>
+<br /><br />
+
+<h3>13. AD users in their OU, now matched in Entra ID:</h3>
+<img src="screenshots/13-ad-users-ou.png" height="80%" width="80%" alt="AD users in OU"/>
+<img src="screenshots/13-entra-users-ou.png" height="80%" width="80%" alt="Same users in Entra ID"/>
+<br /><br />
+
+<h3>14. Synced Ireland user confirmed in Entra ID:</h3>
+<img src="screenshots/14-ireland-user-connected.png" height="80%" width="80%" alt="Ireland user connected"/>
 
 </p>
-
 <h2>Troubleshooting</h2>
 
 **Issue:** Entra Connect refused to use a Domain Admin account for the sync.
