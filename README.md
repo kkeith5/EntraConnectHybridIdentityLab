@@ -86,10 +86,20 @@ This project connects the on-prem Active Directory domain from my [Active Direct
 <img src="screenshots/14-ireland-user-connected.png" height="80%" width="80%" alt="Ireland user connected"/>
 
 </p>
-<h2>Troubleshooting</h2>
+<h2>Troubleshooting and Lessons Learned</h2>
 
-**Issue:** Entra Connect refused to use a Domain Admin account for the sync.
-**Fix:** Let the wizard create a dedicated least-privilege sync account instead.
+**Issue: couldn't use my Domain Admin account for the sync**
+When I tried to connect using my Domain Admin account, Entra Connect blocked it — turns out you're not allowed use an Enterprise or Domain Admin account for the sync connection anymore. Instead I let the wizard create its own dedicated sync account (`MSOL_...`), which only has the permissions it actually needs instead of full admin rights.
 
-**Issue:** AD-synced users' `Country` attribute stored full names (e.g. "Ireland"), while cloud-only users used short codes (e.g. "IE"), so dynamic group rules matched inconsistently.
-**Fix:** Standardised both sides on full country names and updated the dynamic group rules to match.
+**Issue: my lab domain isn't a real verified domain**
+My AD domain is `lab.local`, which isn't a real internet domain, so Entra couldn't verify it against my tenant. I had to tick "continue without matching all UPN suffixes" to get past it. Because of this, synced users end up with a `@Myself764.onmicrosoft.com` login instead of their real domain — in an actual company you'd fix this by adding and verifying your real domain in Entra first.
+
+**Issue: Country field didn't match between AD and Entra**
+I'd already set Country on my cloud users using short codes (IE, UK, USA) through PowerShell. When I later added Country and Department to my on-prem AD users and synced them over, I noticed AD syncs the full country name instead — so "Ireland" instead of "IE". This meant my dynamic group rules (built around the short codes) weren't picking up the AD users even though everything looked set up right.
+
+**Fix:** switched everything over to full country names (Ireland, United Kingdom, United States) on both sides, and updated the dynamic group rules to match. Good reminder that this kind of thing doesn't throw an error — it just quietly doesn't add the user to the group, which is honestly harder to catch than something that actually fails loudly.
+
+**Main difference between AD and Entra ID I picked up on:**
+- In AD, you set Country/Department through ADUC (Address and Organization tabs) or with `Set-ADUser`.
+- In Entra ID, it's a different set of tools entirely — the admin center or `Update-MgUser` through Graph PowerShell. Makes sense once you think about it, since AD and Entra are actually two separate directories being kept in sync, not the same thing shown two ways.
+- Syncing only goes one direction by default — AD to Entra ID. If you change something directly in Entra (like editing a synced user's Department in the cloud), it doesn't flow back to AD, and can actually get overwritten again next time it syncs. The one exception is password writeback, which I didn't turn on for this lab, but that's the feature that lets a cloud password reset flow back down to AD.
