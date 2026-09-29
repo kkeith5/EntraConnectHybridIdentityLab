@@ -57,6 +57,7 @@ I built this as I saw it as a logical next step to combine Active Directory lab 
 <br /><br />
 
 <h3>7. Domain and OU filtering — scoped to the Lab OU:</h3>
+Only needed the lab OU as I designed it to have everything needed for users and OU in this folder.
 <img src="screenshots/07-domain-ou-filtering.png" height="80%" width="80%" alt="Domain and OU filtering"/>
 <br /><br />
 
@@ -69,6 +70,7 @@ I built this as I saw it as a logical next step to combine Active Directory lab 
 <br /><br />
 
 <h3>10. Optional features:</h3>
+Will add password writeback but for now I dont think it is nessasary
 <img src="screenshots/10-optional-features.png" height="80%" width="80%" alt="Optional features"/>
 <br /><br />
 
@@ -77,6 +79,7 @@ I built this as I saw it as a logical next step to combine Active Directory lab 
 <br /><br />
 
 <h3>12. All users successfully synchronised:</h3>
+You can see there are users on and off premeises so entra connect sync was successful but needed adjustments in AD and changes to dynamic groups to work.
 <img src="screenshots/12-all-users-synced.png" height="80%" width="80%" alt="All users synced"/>
 <br /><br />
 
